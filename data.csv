@@ -1,0 +1,10 @@
+title;description;url;image
+Todo App;A distraction-free web app to help you focus on creating and completing tasks.;https://github.com/Enio2298/my-new-todo-app;1.png
+Portfolio Website;A website built entirely in Python to showcase coding projects and apps.;https://github.com/Enio2298/Portfolio;2.png
+PDF Templates;A script that generates PDF templates of multiple pages given some predefined guidelines.;https://github.com/Enio2298/PDF_Templates;3.png
+PDF Invoices;A script that reads invoice records from Excel files and automatically generates PDF invoices.;https://github.com/Enio2298/ExcelPDF_Template_Generator;4.png
+Weather API;A REST API built with Python and Flask to serve historical weather data for various cities.;https://github.com/Enio2298/Weather_Forecast_API;5.png
+Tour Scraper;A program that checks a music band's website and sends an email when there are new tours.;https://github.com/Enio2298/Web_Scraping_TourApp;6.png
+Typing Analyzer;A program that monitors the computer keyboard and returns the most typed words of the session.;https://github.com/Enio2298/NLTK_Sentiment_Analyzer;7.png
+Visualizing Weather Forecast;A data web app that visualizes the weather forecast for the next five days of any city.;https://github.com/Enio2298/Weather_Forecast_Webpage;8.png
+School Management System;A desktop PyQt6 GUI app for managing complex university data with an SQL database backend.;https://github.com/Enio2298/StudentManagement_MySQL;9.png
