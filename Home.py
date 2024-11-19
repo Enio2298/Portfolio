@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas
+from Email import send_email
 
 st.set_page_config(layout="wide")
 col1, col2 = st.columns(2)
@@ -8,24 +8,32 @@ with col1:
     st.image("images/foto.png", width=300)
 with col2:
     st.text("Enio Rodríguez")
-    content = """I'm Enio i like to learn new things such as programming, i want to prove myself
-    in this scenarios, and also till' this day it had been a funny hobbie to take, i would like to learn
-    more about Python, and other languages, to apply this things in the real world"""
+    content = """I'm Enio, and I enjoy learning new things, especially programming. 
+    I want to challenge myself in these areas, and so far, it has been a fun hobby to pursue. 
+    I’d like to deepen my knowledge of Python and explore other programming languages and applications, 
+    such as Power BI, to apply these skills in real-world scenarios.
+    I'm particularly interested in data-driven projects."""
     st.info(content)
 
-content2="""Below you can find some of the apps i have built in Python. Feel free to contact me!"""
+content2="""You can send me an email below to get in touch with me!"""
 
 st.text(content2)
 
-df = pandas.read_csv("data.csv", sep=";")
+st.header("Contact Me")
 
-col3, empty_col, col4 = st.columns([1.5, .5, 1.5])
-#"""Los 1.5 y el .5 son las relaciones que tienen los anchos de las
-#tres columnas"""
-with col3:
-    for index, row in df[:10].iterrows():
-        st.header(row["title"])
-        st.image("images/" + row["image"])
+with st.form(key="email_form"):
+    user_email = st.text_input("Your email address")
+    raw_message = st.text_area("Your Message")
+    message = f"""\
+Subject: Un nuevo correo de {user_email}
+
+From: {user_email}
+{raw_message}
+"""
+    button = st.form_submit_button("Submit")
+    if button:
+        send_email(message)
+        st.info("Your email was sent succesfully!")
         st.write(row["description"])
         st.write(f"[Source code]({row['url']})")
 
