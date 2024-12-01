@@ -1,8 +1,4 @@
 import smtplib
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 def send_email(message):
@@ -11,7 +7,7 @@ def send_email(message):
         smtp_server = "smtp.gmail.com"
         port = 587  # TLS port
         username = "enio2298@gmail.com"
-        password = os.getenv("PASSWORD")
+        password = "lpky kskm ibfl evfh "
         receiver = "enio2298@gmail.com"
 
         # Email content
