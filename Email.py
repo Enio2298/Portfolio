@@ -1,14 +1,28 @@
-import smtplib, ssl
+import smtplib
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 def send_email(message):
-    host = "smtp.gmail.com"
-    port = 465
-    username = "enio2298@gmail.com"
-    password = os.getenv("PASSWORD")
-    receiver = "enio2298@gmail.com"
-    my_context = ssl.create_default_context()
+    try:
+        # Setup SMTP server (Gmail example, adjust if using a different provider)
+        smtp_server = "smtp.gmail.com"
+        port = 587  # TLS port
+        username = "enio2298@gmail.com"
+        password = os.getenv("PASSWORD")
+        receiver = "enio2298@gmail.com"
 
-    with smtplib.SMTP_SSL(host, port, context=my_context) as server:
-        server.login(username, password)
-        server.sendmail(username, receiver, message.encode("utf8"))
+        # Email content
+        subject = "Email from the portfolio"
+        body = message
+        message = f"Subject: {subject}\n\n{body}"
+
+        # Establish connection and send email
+        with smtplib.SMTP(smtp_server, port) as server:
+            server.starttls()  # Start TLS encryption
+            server.login(username, password)  # Login to email account
+            server.sendmail(username, receiver, message)  # Send email
+    except Exception as e:
+        print(f"Error: {e}")
