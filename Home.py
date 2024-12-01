@@ -25,23 +25,12 @@ with st.form(key="email_form"):
     user_email = st.text_input("Your email address")
     raw_message = st.text_area("Your Message")
     message = f"""\
-Subject: Un nuevo correo de {user_email}
-
 From: {user_email}
+
+
 {raw_message}
 """
     button = st.form_submit_button("Submit")
     if button:
         send_email(message)
         st.info("Your email was sent succesfully!")
-        st.write(row["description"])
-        st.write(f"[Source code]({row['url']})")
-
-with col4:
-    for index, row in df[10:].iterrows():
-        st.header(row["title"])
-        st.image("images/" + row["image"])
-        st.write(row["description"])
-        st.write(f"[Source code]({row['url']})")
-
-
